@@ -116,6 +116,34 @@ function addEngineer() {
 
 };
 
+function addIntern() {
+    inquirer.prompt([
+        {
+            message: "What is this intern's name?",
+            name: "name"
+        },
+        {
+            message: "What is this intern's email address?",
+            name: "email"
+        },
+        {
+            message: "What is this intern's school?",
+            name: "school"
+        }
+    ])
+
+        .then(function (data) {
+            const name = data.name
+            const id = finalTeamArray.length + 1
+            const email = data.email
+            const school = data.school
+            const teamMember = new Intern(name, id, email, school)
+            finalTeamArray.push(teamMember)
+            addTeamMembers()
+        });
+
+};
+
 
 
 // Write code to use inquirer to gather information about the development team members,
