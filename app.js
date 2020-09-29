@@ -61,6 +61,34 @@ function addManager() {
 
 }
 
+function addTeamMembers() {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Would you like to add more team members?",
+            choices: ["Yes, add an engineer", "Yes, add an intern", "No, my team is complete"],
+            name: "addMemberData"
+        }
+    ])
+
+        .then(function (data) {
+
+            switch (data.addMemberData) {
+                case "Yes, add an engineer":
+                    addEngineer();
+                    break;
+
+                case "Yes, add an intern":
+                    addIntern();
+                    break;
+                case "No, my team is complete":
+                    compileTeam();
+                    break;
+            }
+        });
+}
+
+
 
 
 // Write code to use inquirer to gather information about the development team members,
