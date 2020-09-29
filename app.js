@@ -88,6 +88,33 @@ function addTeamMembers() {
         });
 }
 
+function addEngineer() {
+    inquirer.prompt([
+        {
+            message: "What is this engineer's name?",
+            name: "name"
+        },
+        {
+            message: "What is this engineer's email address?",
+            name: "email"
+        },
+        {
+            message: "What is this engineer's Github profile?",
+            name: "github"
+        }
+    ])
+
+        .then(function (data) {
+            const name = data.name
+            const id = finalTeamArray.length + 1
+            const email = data.email
+            const github = data.github
+            const teamMember = new Engineer(name, id, email, github)
+            finalTeamArray.push(teamMember)
+            addTeamMembers()
+        });
+
+};
 
 
 
