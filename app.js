@@ -11,6 +11,58 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
+
+let finalTeamArray = [];
+
+
+function startingPrompt() {
+    inquirer.prompt([
+        {
+            message: "Welcome to Team Generator 5000! Please write your team name:",
+            name: "teamname"
+        }
+    ])
+        .then(function (data) {
+            const teamName = data.teamname
+            finalTeamArray.push(teamName)
+            addManager();
+        })
+
+
+}
+
+function addManager() {
+    inquirer.prompt([
+        {
+            message: "What is your team manager's name?",
+            name: "name"
+        },
+        {
+            message: "What is your team manager's email address?",
+            name: "email"
+        },
+
+        {
+            type: "number",
+            message: "What is your team manager's office number?",
+            name: "officeNumber"
+        },
+    ])
+
+        .then(function (data) {
+            const name = data.name
+            const id = 1
+            const email = data.email
+            const officeNumber = data.officeNumber
+            const teamMember = new Manager(name, id, email, officeNumber)
+            finalTeamArray.push(teamMember)
+            addTeamMembers();
+        });
+
+}
+
+
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
