@@ -133,7 +133,7 @@ function addHtml(member) {
             const gitHub = member.getGithub();
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 18rem">
-            <h5 class="card-header">${name}<br /><span class="material-icons">code</span><br />Engineer</h5>
+            <h5 class="card-header">${name}<br /><span class="material-icons">computer</span><br />Engineer</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">Email Address: ${email}</li>
